@@ -1,0 +1,30 @@
+#players {
+	display: flex;
+	flex-direction: column;
+	margin-top: 10px;
+	margin-block: 10px;
+}
+
+#players span {
+	margin-left: 4px;
+}
+
+#players span:last-of-type() {
+	margin-right: 4px;
+}
+
+button {
+	min-width: 20px;
+	min-height: 20px;
+}
+
+#scoreboard {
+	display: grid;
+	grid-template-rows: auto;
+	grid-template-columns: ". . . . . . . .";
+	grid-template-areas: 
+	"m1 u1 p1 s1 s2 m2 u2 p2";
+	gap: 10px;
+	justify-content: left;
+	align-content: center;
+}
