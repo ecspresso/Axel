@@ -1,6 +1,12 @@
 #players {
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-template-rows: auto;
+	grid-template-columns: ". .";
+	grid-template-areas: 
+	"player button";
+	gap: 10px;
+	justify-content: left;
+	align-content: center;
 	margin-top: 10px;
 	margin-block: 10px;
 }

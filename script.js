@@ -24,10 +24,22 @@ function create(type) {
 function addUser() {
 	let name = document.getElementById('playername').value;
 	let players = document.getElementById('players');
-	let scoreboard = document.getElementById('scoreboard');
 	let player = create('span');
+	
 	player.textContent = name;
+	player.id = generateUUID();
+
+	let x = create('button');
+	let img = create('img');
+	img.src = 'x-solid.svg';
+	x.appendChild(img);
+	x.onclick = function() {
+		player.remove();
+		x.remove();
+	}
+
 	players.appendChild(player);
+	players.appendChild(x);
 }
 
 function button(src) {
@@ -52,8 +64,8 @@ function run() {
 	var sb = document.getElementById('scoreboard');
 	sb.replaceChildren();
 
-	for(var i = 0; i < c.length; i++) {
-		for(var j = i+1; j < c.length; j++) {
+	for(var i = 0; i < c.length; i+=2) {
+		for(var j = i+2; j < c.length; j+=2) {
 			let player1 = create('span');
 			player1.textContent = c[i].textContent;
 			player1.style.gridArea = 'u1';
@@ -114,5 +126,15 @@ function run() {
 		}
 	}
 }
+
+
+document.getElementById('playername').value = "player1";
+addUser();
+document.getElementById('playername').value = "player2";
+addUser();
+document.getElementById('playername').value = "player3";
+addUser();
+document.getElementById('playername').value = "player4";
+addUser();
 
 run();
